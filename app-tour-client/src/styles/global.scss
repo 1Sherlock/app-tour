@@ -1,3 +1,542 @@
-body{
-  background-color: red;
+/************** FONT STYLE ***********/
+@font-face {
+  font-family: "Roboto-Black";
+  src: url("../fonts/font/Roboto-Black.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("../fonts/font/Roboto-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("../fonts/font/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Light";
+  src: url("../fonts/font/Roboto-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Medium";
+  src: url("../fonts/font/Roboto-Medium.ttf") format("truetype");
+}
+
+.font-family-bold {
+  font-family: "Roboto-Bold", sans-serif;
+}
+
+.font-family-medium {
+  font-family: "Roboto-Medium", sans-serif;
+}
+
+.font-family-light {
+  font-family: "Roboto-Light", sans-serif;
+}
+
+.font-family-regular {
+  font-family: "Roboto-Regular", sans-serif;
+}
+
+.font-family-black {
+  font-family: "Roboto-Black", sans-serif;
+}
+
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: url("../fonts/font-mont/Montserrat-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Montserrat-Light";
+  src: url("../fonts/font-mont/Montserrat-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: url("../fonts/font-mont/Montserrat-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Montserrat-SemiBold";
+  src: url("../fonts/font-mont/Montserrat-SemiBold.otf") format("opentype");
+}
+
+.font-family-mont-bold {
+  font-family: "Montserrat-Bold", sans-serif;
+}
+
+.font-family-mont-semi-bold {
+  font-family: "Montserrat-SemiBold", sans-serif;
+}
+
+.font-family-mont-light {
+  font-family: "Montserrat-Light", sans-serif;
+}
+
+.font-family-mont-regular {
+  font-family: "Montserrat-Regular", sans-serif;
+}
+
+/******************* COLORS STYLE ****************/
+$color-yellow: #F58726;
+$color-main: #1A005C;
+$color-bg: #fafafa;
+$color-lightgrey: #E8E8E1;
+
+body {
+  .yellow-line {
+    width: 100%;
+    height: 25px;
+    background-color: $color-yellow;
+    font-size: 12px;
+  }
+
+  section {
+    &#header {
+      height: 100vh;
+      background-image: url("/images/bg.png");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      padding-bottom: 100px;
+
+      .container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .navbar {
+          .navbar-nav {
+            .nav-item {
+              margin: 50px 15px;
+
+              .nav-link {
+                font-size: 18px;
+                color: $color-main;
+              }
+
+              border-bottom: 3px solid transparent;
+
+              &:hover {
+                border-bottom-color: $color-yellow;
+              }
+            }
+          }
+        }
+
+        .row {
+          .col-8 {
+            .main-text {
+              font-size: 72px;
+              color: $color-main;
+            }
+
+            .text {
+              font-size: 28px;
+              color: $color-main;
+              padding: 22px 100px 80px;
+            }
+
+            .btn-header {
+              width: 300px;
+              height: 80px;
+              border-radius: 50px;
+              background-color: $color-main;
+              color: #ffffff;
+              font-size: 24px;
+
+              &:hover {
+                background-color: $color-yellow;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &#tour-programmes {
+      background-color: #fdfdfd;
+
+      .title-tour {
+        padding-top: 85px;
+        margin-bottom: 50px;
+
+        p {
+          font-size: 36px;
+          color: $color-main;
+        }
+
+        h2 {
+          font-size: 64px;
+          color: $color-yellow;
+        }
+      }
+
+      .row {
+        .card-style {
+          .card {
+            border-radius: 25px;
+            box-shadow: 0px 0px 20px 1px rgba(26, 0, 92, 0.1);
+
+            .card-header {
+              border-radius: 25px;
+            }
+
+            .card-body {
+              h5 {
+                font-size: 24px;
+              }
+
+              p {
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+
+      .btn-show {
+        width: 250px;
+        height: 65px;
+        border-radius: 50px;
+        background-color: $color-main;
+        font-size: 20px;
+        margin-top: 50px;
+        margin-bottom: 80px;
+
+        &:hover {
+          background-color: $color-yellow;
+        }
+      }
+    }
+
+    &#destination {
+      background-color: #fdfdfd;
+
+      .container {
+        .title-destination {
+          //padding-top: 85px;
+          margin-bottom: 50px;
+
+          p {
+            font-size: 36px;
+            color: $color-main;
+          }
+
+          h2 {
+            font-size: 64px;
+            color: $color-yellow;
+          }
+        }
+
+        .box {
+          margin: 4% auto;
+          width: 300px;
+          height: 230px;
+          position: relative;
+          perspective: 1000px;
+        }
+
+        #carousel {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          transform-style: preserve-3d;
+          animation: rotation 20s infinite linear;
+        }
+
+        #carousel:hover {
+          animation-play-state: paused;
+
+        }
+
+        #carousel figure {
+          display: block;
+          position: absolute;
+          width: 280px;
+          height: 200px;
+          left: 10px;
+          top: 10px;
+          background: white;
+          overflow: hidden;
+          border: solid 1px $color-main;
+          border-radius: 25px;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          .layer {
+            width: 280px;
+            height: 200px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: rgba(145, 181, 183, 0.5);
+            box-shadow: 0px 0px 20px 10px rgba(26, 0, 92, 0.25);
+            opacity: 0;
+          }
+
+          &:hover {
+            border: solid 1px $color-yellow;
+
+            .layer {
+              opacity: 1;
+            }
+          }
+        }
+
+        #carousel figure:nth-child(1) {
+          transform: rotateY(0deg) translateZ(400px);
+        }
+
+        #carousel figure:nth-child(2) {
+          transform: rotateY(40deg) translateZ(400px);
+        }
+
+        #carousel figure:nth-child(3) {
+          transform: rotateY(80deg) translateZ(400px);
+        }
+
+        #carousel figure:nth-child(4) {
+          transform: rotateY(120deg) translateZ(400px);
+        }
+
+        #carousel figure:nth-child(5) {
+          transform: rotateY(160deg) translateZ(400px);
+        }
+
+        #carousel figure:nth-child(6) {
+          transform: rotateY(200deg) translateZ(400px);
+        }
+
+        #carousel figure:nth-child(7) {
+          transform: rotateY(240deg) translateZ(400px);
+        }
+
+        #carousel figure:nth-child(8) {
+          transform: rotateY(280deg) translateZ(400px);
+        }
+
+        #carousel figure:nth-child(9) {
+          transform: rotateY(320deg) translateZ(400px);
+        }
+
+        img {
+          cursor: pointer;
+          transition: all .5s ease;
+        }
+
+        img:hover {
+          transform: scale(1.2, 1.2);
+        }
+
+        @keyframes rotation {
+          from {
+            transform: rotateY(0deg);
+          }
+          to {
+            transform: rotateY(360deg);
+          }
+        }
+      }
+    }
+
+    &#blog{
+      .container{
+        .title-blog {
+          padding-top: 85px;
+          margin-bottom: 50px;
+
+          p {
+            font-size: 36px;
+            color: $color-main;
+          }
+
+          h2 {
+            font-size: 64px;
+            color: $color-yellow;
+          }
+        }
+
+        .news{
+          margin-bottom: 40px;
+          .news-title{
+            font-size: 24px;
+          }
+          .news-text{
+            font-size: 18px;
+          }
+        }
+
+      }
+    }
+
+    &#map {
+      .container {
+        .title-contact {
+          padding-top: 85px;
+          margin-bottom: 50px;
+
+          p {
+            font-size: 36px;
+            color: $color-main;
+          }
+
+          h2 {
+            font-size: 64px;
+            color: $color-yellow;
+          }
+        }
+
+        .map-zone {
+          box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+          position: relative;
+          width: 100%;
+          height: 500px;
+
+          .map {
+            border: 0;
+            width: 100%;
+            height: 100%;
+          }
+
+          .contacts {
+            width: 40%;
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            .card {
+              box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.1);
+              border-radius: 0px 0px 0px 15px;
+
+              .card-footer {
+                background-color: $color-main;
+                border-radius: 0px 0px 0px 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &#need-help {
+      background-color: #fdfdfd;
+
+      .container {
+        .title-need-help {
+          padding-top: 80px;
+          margin-bottom: 50px;
+
+          p {
+            font-size: 36px;
+            color: $color-main;
+          }
+
+          h2 {
+            font-size: 64px;
+            color: $color-yellow;
+          }
+        }
+
+        .faq {
+          width: 100%;
+          padding: 25px;
+          opacity: 0.88;
+          background-color: white;
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+          //border: 1px solid $color-main;
+          .collapse-button {
+            width: 100%;
+            background-color: white;
+            border: none;
+            border-top-color: rgba(0, 0, 0, 0.125);
+            border-top-style: solid;
+            border-top-width: 1px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: none;
+            color: $color-main;
+            font-size: 18px;
+            font-family: "Roboto-Regular", sans-serif;
+            border-radius: 0;
+            padding: 15px 20px;
+          }
+
+          .collapse-card {
+            border: none;
+            border-radius: 0;
+            color: #838383;
+
+            .card-body {
+              font-size: 16px;
+              font-family: "Roboto-Light", sans-serif;
+              width: 100%;
+              padding: 15px 35px 15px 25px;
+            }
+          }
+        }
+      }
+    }
+
+    &#footer {
+      margin-top: 80px;
+      background-color: $color-main;
+      .container {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        .row{
+          background-color: white;
+          padding-top: 50px;
+          padding-bottom: 50px;
+          padding-left: 30px;
+
+          .footer-logo{
+            p{
+              font-size: 18px;
+              color: $color-main;
+            }
+            h4{
+              font-size: 36px;
+              color: $color-yellow;
+            }
+            .context{
+              font-size: 18px;
+            }
+          }
+
+          .footer-menu{
+            .title-menu{
+              h6{
+                font-size: 20px;
+              }
+            }
+            .nav-item{
+              .nav-link{
+                font-size: 18px;
+              }
+            }
+          }
+
+         .footer-contact{
+           .title-footer-contact{
+             h6{
+               font-size: 20px;
+             }
+           }
+           .text-footer{
+             font-size: 18px;
+           }
+         }
+        }
+      }
+    }
+  }
 }
