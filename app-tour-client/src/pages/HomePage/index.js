@@ -1,19 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, Card, CardBody, UncontrolledCollapse} from "reactstrap";
 const showMore = () => {
 
 };
 const HomePage = () => {
+
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
         <div>
             <section id="header">
-                <div className="container">
-                    <div className="navbar navbar-expand-sm justify-content-between">
+                <div className="navbar navbar-expand-sm justify-content-between">
+                    <div className="container">
                         <a href="#" className="navbar-brand">
-                            <img src="/logo.png" alt="" className=""/>
+                            <img src="logo.png" alt="" className=""/>
                         </a>
 
-                        <ul className="navbar-nav">
+                        <ul className="navbar-nav nav-links">
                             <li className="nav-item"><a href="#" className="nav-link font-family-medium">Tour
                                 programmes</a></li>
                             <li className="nav-item"><a href="#"
@@ -25,10 +28,41 @@ const HomePage = () => {
                             <li className="nav-item"><a href="#" className="nav-link font-family-medium">Blog</a></li>
                         </ul>
                     </div>
+                </div>
 
+                <div className={`navbar-mobile ${isOpen ? "navbar-visible" : ""}`}>
+                    <div className="container">
+                        <div className="d-flex justify-content-between w-100 align-items-center logo-content">
+                            <a href="#" className="navbar-brand">
+                                <img src="logo.png" alt="" className=""/>
+                            </a>
+
+                            <button type="button" className="menu-icon btn shadow-none" onClick={() => setIsOpen(!isOpen)}>
+                                <img src="menu.png" alt="" className=""/>
+                            </button>
+                        </div>
+
+
+                    </div>
+
+                    <ul  className={`navbar-nav ${isOpen ? "visible" : ""}`}>
+                        <li className="nav-item"><a href="#" className="nav-link font-family-medium">Tour
+                            programmes</a></li>
+                        <li className="nav-item"><a href="#"
+                                                    className="nav-link font-family-medium">Destinations</a></li>
+                        <li className="nav-item"><a href="#" className="nav-link font-family-medium">Contacts</a>
+                        </li>
+                        <li className="nav-item"><a href="#" className="nav-link font-family-medium">Need help?</a>
+                        </li>
+                        <li className="nav-item"><a href="#" className="nav-link font-family-medium">Blog</a></li>
+                    </ul>
+
+                </div>
+
+                <div className="container">
                     <div className="row">
-                        <div className="col-8 offset-2">
-                            <div className="d-flex flex-column align-items-center justify-content-center text-center">
+                        <div className="d-flex flex-column align-items-center justify-content-center text-center">
+                            <div className="header-main-part">
                                 <h2 className="main-text font-family-mont-semi-bold mb-0">Let`s go to travel with our
                                     company</h2>
                                 <p className="text font-family-regular mb-0">World is a book, those who don't travel
@@ -38,12 +72,11 @@ const HomePage = () => {
                                 </button>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
 
-            <div className="yellow-line" />
+            <div className="yellow-line"></div>
 
             <section id="tour-programmes">
                 <div className="container">
@@ -53,10 +86,10 @@ const HomePage = () => {
                     </div>
 
                     <div className="row">
-                        <div className="col-4 card-style mb-3">
+                        <div className="col-lg-4 col-md-6 col-sm-12 card-style mb-3">
                             <div className="card border-0">
                                 <div className="card-header border-0 p-0">
-                                    <img src="/card3.png" alt="" className="w-100"/>
+                                    <img src="card3.png" alt="" className="w-100"/>
                                 </div>
                                 <div className="card-body">
                                     <h5 className="font-family-regular">Antalya</h5>
@@ -64,11 +97,11 @@ const HomePage = () => {
                                         Mediterranean coastline and hence,
                                         offers wonderful scenic views.</p>
                                     <div className="d-flex justify-content-between align-items-center">
-                                        <div className="d-flex align-items-center"><img src="/lokatsiya.png" alt=""
+                                        <div className="d-flex align-items-center"><img src="lokatsiya.png" alt=""
                                                                                         className=""/> <span
                                             className="ml-1 font-family-light">Antalya,Turkey</span>
                                         </div>
-                                        <div className="d-flex align-items-center"><img src="/cost.png" alt=""
+                                        <div className="d-flex align-items-center"><img src="cost.png" alt=""
                                                                                         className=""/> <span
                                             className="ml-1 font-family-light">100/person</span></div>
                                     </div>
@@ -76,10 +109,10 @@ const HomePage = () => {
                             </div>
                         </div>
 
-                        <div className="col-4 card-style mb-3">
+                        <div className="col-lg-4 col-md-6 col-sm-12 card-style mb-3">
                             <div className="card border-0">
                                 <div className="card-header border-0 p-0">
-                                    <img src="/card2.png" alt="" className="w-100"/>
+                                    <img src="card2.png" alt="" className="w-100"/>
                                 </div>
                                 <div className="card-body">
                                     <h5 className="font-family-regular">Venice</h5>
@@ -87,11 +120,11 @@ const HomePage = () => {
                                         Beautiful floating palaces of stone surrounded by an ancient network of
                                         canals.</p>
                                     <div className="d-flex justify-content-between align-items-center">
-                                        <div className="d-flex align-items-center"><img src="/lokatsiya.png" alt=""
+                                        <div className="d-flex align-items-center"><img src="lokatsiya.png" alt=""
                                                                                         className=""/> <span
                                             className="ml-1 font-family-light">Venice, Italy</span>
                                         </div>
-                                        <div className="d-flex align-items-center"><img src="/cost.png" alt=""
+                                        <div className="d-flex align-items-center"><img src="cost.png" alt=""
                                                                                         className=""/> <span
                                             className="ml-1 font-family-light">250/person</span></div>
                                     </div>
@@ -99,10 +132,10 @@ const HomePage = () => {
                             </div>
                         </div>
 
-                        <div className="col-4 card-style mb-3">
+                        <div className="col-lg-4 col-md-6 col-sm-12 card-style mb-3">
                             <div className="card border-0">
                                 <div className="card-header border-0 p-0">
-                                    <img src="/card1.png" alt="" className="w-100"/>
+                                    <img src="card1.png" alt="" className="w-100"/>
                                 </div>
                                 <div className="card-body">
                                     <h5 className="font-family-regular">Antalya</h5>
@@ -110,12 +143,12 @@ const HomePage = () => {
                                         Mediterranean coastline and hence,
                                         offers wonderful scenic views.</p>
                                     <div className="d-flex justify-content-between align-items-center">
-                                        <div className="d-flex align-items-center"><img src="/lokatsiya.png" alt=""
+                                        <div className="d-flex align-items-center"><img src="lokatsiya.png" alt=""
                                                                                         className=""/> <span
                                             className="ml-1 font-family-light">Antalya,Turkey</span>
                                         </div>
                                         <div className="d-flex align-items-center justify-content-center"><img
-                                            src="/cost.png" alt=""
+                                            src="cost.png" alt=""
                                             className=""/> <span
                                             className="ml-1 font-family-light">100/person</span></div>
                                     </div>
@@ -123,10 +156,10 @@ const HomePage = () => {
                             </div>
                         </div>
 
-                        <div className="col-4 card-style mb-3">
+                        <div className="col-lg-4 col-md-6 col-sm-12 card-style mb-3">
                             <div className="card border-0">
                                 <div className="card-header border-0 p-0">
-                                    <img src="/card3.png" alt="" className="w-100"/>
+                                    <img src="card3.png" alt="" className="w-100"/>
                                 </div>
                                 <div className="card-body">
                                     <h5 className="font-family-regular">Antalya</h5>
@@ -134,11 +167,11 @@ const HomePage = () => {
                                         Mediterranean coastline and hence,
                                         offers wonderful scenic views.</p>
                                     <div className="d-flex justify-content-between align-items-center">
-                                        <div className="d-flex align-items-center"><img src="/lokatsiya.png" alt=""
+                                        <div className="d-flex align-items-center"><img src="lokatsiya.png" alt=""
                                                                                         className=""/> <span
                                             className="ml-1 font-family-light">Antalya,Turkey</span>
                                         </div>
-                                        <div className="d-flex align-items-center"><img src="/cost.png" alt=""
+                                        <div className="d-flex align-items-center"><img src="cost.png" alt=""
                                                                                         className=""/> <span
                                             className="ml-1 font-family-light">100/person</span></div>
                                     </div>
@@ -146,10 +179,10 @@ const HomePage = () => {
                             </div>
                         </div>
 
-                        <div className="col-4 card-style mb-3">
+                        <div className="col-lg-4 col-md-6 col-sm-12 card-style mb-3">
                             <div className="card border-0">
                                 <div className="card-header border-0 p-0">
-                                    <img src="/card2.png" alt="" className="w-100"/>
+                                    <img src="card2.png" alt="" className="w-100"/>
                                 </div>
                                 <div className="card-body">
                                     <h5 className="font-family-regular">Venice</h5>
@@ -157,11 +190,11 @@ const HomePage = () => {
                                         Beautiful floating palaces of stone surrounded by an ancient network of
                                         canals.</p>
                                     <div className="d-flex justify-content-between align-items-center">
-                                        <div className="d-flex align-items-center"><img src="/lokatsiya.png" alt=""
+                                        <div className="d-flex align-items-center"><img src="lokatsiya.png" alt=""
                                                                                         className=""/> <span
                                             className="ml-1 font-family-light">Venice, Italy</span>
                                         </div>
-                                        <div className="d-flex align-items-center"><img src="/cost.png" alt=""
+                                        <div className="d-flex align-items-center"><img src="cost.png" alt=""
                                                                                         className=""/> <span
                                             className="ml-1 font-family-light">250/person</span></div>
                                     </div>
@@ -169,10 +202,10 @@ const HomePage = () => {
                             </div>
                         </div>
 
-                        <div className="col-4 card-style mb-3">
+                        <div className="col-lg-4 col-md-6 col-sm-12 card-style mb-3">
                             <div className="card border-0">
                                 <div className="card-header border-0 p-0">
-                                    <img src="/card1.png" alt="" className="w-100"/>
+                                    <img src="card1.png" alt="" className="w-100"/>
                                 </div>
                                 <div className="card-body">
                                     <h5 className="font-family-regular">Antalya</h5>
@@ -180,12 +213,12 @@ const HomePage = () => {
                                         Mediterranean coastline and hence,
                                         offers wonderful scenic views.</p>
                                     <div className="d-flex justify-content-between align-items-center">
-                                        <div className="d-flex align-items-center"><img src="/lokatsiya.png" alt=""
+                                        <div className="d-flex align-items-center"><img src="lokatsiya.png" alt=""
                                                                                         className=""/> <span
                                             className="ml-1 font-family-light">Antalya,Turkey</span>
                                         </div>
                                         <div className="d-flex align-items-center justify-content-center"><img
-                                            src="/cost.png" alt=""
+                                            src="cost.png" alt=""
                                             className=""/> <span
                                             className="ml-1 font-family-light">100/person</span></div>
                                     </div>
@@ -195,8 +228,7 @@ const HomePage = () => {
                     </div>
 
                     <div className="d-flex align-items-center justify-content-center">
-                        <button className="btn text-white btn-show font-family-light shadow-none" type="button"
-                                onClick={showMore}>Show more...
+                        <button className="btn text-white btn-show font-family-light shadow-none" type="button">Show more...
                         </button>
                     </div>
                 </div>
@@ -210,66 +242,66 @@ const HomePage = () => {
                     </div>
 
                     <div className="row align-items-center justify-content-center">
-                        <div className="box">
+                        <div className="box d-none">
                             <div id="carousel">
                                 <figure>
-                                    <img src="/carousel-1.jpg" alt=""/>
+                                    <img src="carousel-1.jpg" alt=""/>
                                     <div className="layer d-flex flex-column align-items-center justify-content-center">
                                         <h5 className="text-white">Keukenhof</h5>
                                         <h4 className="text-white">Holand</h4>
                                     </div>
                                 </figure>
                                 <figure>
-                                    <img src="/carousel-2.jpg" alt=""/>
+                                    <img src="carousel-2.jpg" alt=""/>
                                     <div className="layer d-flex flex-column align-items-center justify-content-center">
                                         <h5 className="text-white">Dubai</h5>
                                         <h4 className="text-white">UAE</h4>
                                     </div>
                                 </figure>
                                 <figure>
-                                    <img src="/carousel-3.jpg" alt=""/>
+                                    <img src="carousel-3.jpg" alt=""/>
                                     <div className="layer d-flex flex-column align-items-center justify-content-center">
                                         <h5 className="text-white">Colosseum</h5>
                                         <h4 className="text-white">Italy</h4>
                                     </div>
                                 </figure>
                                 <figure>
-                                    <img src="/carousel-4.jpg" alt=""/>
+                                    <img src="carousel-4.jpg" alt=""/>
                                     <div className="layer d-flex flex-column align-items-center justify-content-center">
                                         <h5 className="text-white">Bodrum</h5>
                                         <h4 className="text-white">Turkey</h4>
                                     </div>
                                 </figure>
                                 <figure>
-                                    <img src="/carousel-5.jpg" alt=""/>
+                                    <img src="carousel-5.jpg" alt=""/>
                                     <div className="layer d-flex flex-column align-items-center justify-content-center">
                                         <h5 className="text-white">Glacier Express</h5>
                                         <h4 className="text-white">Switzerland</h4>
                                     </div>
                                 </figure>
                                 <figure>
-                                    <img src="/carousel-6.jpg" alt=""/>
+                                    <img src="carousel-6.jpg" alt=""/>
                                     <div className="layer d-flex flex-column align-items-center justify-content-center">
                                         <h5 className="text-white">Anantara Kihavah</h5>
                                         <h4 className="text-white">Maldives</h4>
                                     </div>
                                 </figure>
                                 <figure>
-                                    <img src="/carousel-7.jpg" alt=""/>
+                                    <img src="carousel-7.jpg" alt=""/>
                                     <div className="layer d-flex flex-column align-items-center justify-content-center">
                                         <h5 className="text-white">Taj Mahal</h5>
                                         <h4 className="text-white">India</h4>
                                     </div>
                                 </figure>
                                 <figure>
-                                    <img src="/carousel-8.jpg" alt=""/>
+                                    <img src="carousel-8.jpg" alt=""/>
                                     <div className="layer d-flex flex-column align-items-center justify-content-center">
                                         <h5 className="text-white"></h5>
                                         <h4 className="text-white">Norvegia</h4>
                                     </div>
                                 </figure>
                                 <figure>
-                                    <img src="/carousel-9.jpg" alt=""/>
+                                    <img src="carousel-9.jpg" alt=""/>
                                     <div className="layer d-flex flex-column align-items-center justify-content-center">
                                         <h5 className="text-white"></h5>
                                         <h4 className="text-white">Hawaii</h4>
@@ -277,6 +309,44 @@ const HomePage = () => {
                                 </figure>
                             </div>
                         </div>
+
+                        {/*<Carousel fade>*/}
+                        {/*    <Carousel.Item>*/}
+                        {/*        <img*/}
+                        {/*            className="d-block w-100"*/}
+                        {/*            src="holder.js/800x400?text=First slide&bg=373940"*/}
+                        {/*            alt="First slide"*/}
+                        {/*        />*/}
+                        {/*        <Carousel.Caption>*/}
+                        {/*            <h3>First slide label</h3>*/}
+                        {/*            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>*/}
+                        {/*        </Carousel.Caption>*/}
+                        {/*    </Carousel.Item>*/}
+                        {/*    <Carousel.Item>*/}
+                        {/*        <img*/}
+                        {/*            className="d-block w-100"*/}
+                        {/*            src="holder.js/800x400?text=Second slide&bg=282c34"*/}
+                        {/*            alt="Second slide"*/}
+                        {/*        />*/}
+
+                        {/*        <Carousel.Caption>*/}
+                        {/*            <h3>Second slide label</h3>*/}
+                        {/*            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>*/}
+                        {/*        </Carousel.Caption>*/}
+                        {/*    </Carousel.Item>*/}
+                        {/*    <Carousel.Item>*/}
+                        {/*        <img*/}
+                        {/*            className="d-block w-100"*/}
+                        {/*            src="holder.js/800x400?text=Third slide&bg=20232a"*/}
+                        {/*            alt="Third slide"*/}
+                        {/*        />*/}
+
+                        {/*        <Carousel.Caption>*/}
+                        {/*            <h3>Third slide label</h3>*/}
+                        {/*            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>*/}
+                        {/*        </Carousel.Caption>*/}
+                        {/*    </Carousel.Item>*/}
+                        {/*</Carousel>*/}
                     </div>
                 </div>
             </section>
@@ -303,7 +373,7 @@ const HomePage = () => {
                                     stress and further stated that these restrictions have been incompetent in
                                 </p>
 
-                                <img src="/news1.png" alt="" className=""/>
+                                <img src="news1.png" alt="" className=""/>
                             </div>
 
                             <div className="card border-0 news">
@@ -316,7 +386,7 @@ const HomePage = () => {
                                     will come to an end. The move was welcomed by Tourism Ireland.
                                 </p>
 
-                                <img src="/news3.png" alt="" className=""/>
+                                <img src="news3.png" alt="" className=""/>
                             </div>
                         </div>
                         <div className="col-6">
@@ -330,7 +400,7 @@ const HomePage = () => {
                                     will come to an end. The move was welcomed by Tourism Ireland.
                                 </p>
 
-                                <img src="/news2.png" alt="" className=""/>
+                                <img src="news2.png" alt="" className=""/>
                             </div>
 
                             <div className="card border-0 news">
@@ -346,7 +416,7 @@ const HomePage = () => {
                                     stress and further stated that these restrictions have been incompetent in
                                 </p>
 
-                                <img src="/news4.png" alt="" className=""/>
+                                <img src="news4.png" alt="" className=""/>
                             </div>
                         </div>
                     </div>
@@ -368,7 +438,7 @@ const HomePage = () => {
                                 className="collapse-button"
                             >
                                 <p className="mb-0">What is your national cuisine?</p>
-                                <img src="/down.png" alt="" className=""/>
+                                <img src="down.png" alt="" className=""/>
                             </Button>
                             <UncontrolledCollapse toggler="#toggler-1">
                                 <Card className="collapse-card">
@@ -388,7 +458,7 @@ const HomePage = () => {
                             >
                                 <p className="mb-0">I am traveling with a child, what documents may I need at
                                     check-in?</p>
-                                <img src="/down.png" alt="" className=""/>
+                                <img src="down.png" alt="" className=""/>
                             </Button>
                             <UncontrolledCollapse toggler="#toggler-2">
                                 <Card className="collapse-card">
@@ -407,7 +477,7 @@ const HomePage = () => {
                                 className="collapse-button"
                             >
                                 <p className="mb-0">What are the rules for transporting children?</p>
-                                <img src="/down.png" alt="" className=""/>
+                                <img src="down.png" alt="" className=""/>
                             </Button>
                             <UncontrolledCollapse toggler="#toggler-3">
                                 <Card className="collapse-card">
@@ -426,7 +496,7 @@ const HomePage = () => {
                                 className="collapse-button"
                             >
                                 <p className="mb-0">How can I buy plane tickets online?</p>
-                                <img src="/down.png" alt="" className=""/>
+                                <img src="down.png" alt="" className=""/>
                             </Button>
                             <UncontrolledCollapse toggler="#toggler-4">
                                 <Card className="collapse-card">
@@ -445,7 +515,7 @@ const HomePage = () => {
                                 className="collapse-button"
                             >
                                 <p className="mb-0">How can I buy intercity bus tickets online?</p>
-                                <img src="/down.png" alt="" className=""/>
+                                <img src="down.png" alt="" className=""/>
                             </Button>
                             <UncontrolledCollapse toggler="#toggler-5">
                                 <Card className="collapse-card">
@@ -464,7 +534,7 @@ const HomePage = () => {
                                 className="collapse-button"
                             >
                                 <p className="mb-0">What is your national cuisine?</p>
-                                <img src="/down.png" alt="" className=""/>
+                                <img src="down.png" alt="" className=""/>
                             </Button>
                             <UncontrolledCollapse toggler="#toggler-6">
                                 <Card className="collapse-card">
@@ -489,7 +559,7 @@ const HomePage = () => {
                     <div className="map-zone">
                         <iframe className="map"
                                 src="https://www.google.com/maps/embed?pb=!1m21!1m12!1m3!1d2520.324655923657!2d69.28582771909839!3d41.30477332895754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m6!3e6!4m3!3m2!1d41.3045192!2d69.285954!4m0!5e0!3m2!1sru!2s!4v1643181255335!5m2!1sru!2s"
-                                allowFullScreen="" loading="lazy"/>
+                                allowFullScreen="" loading="lazy"></iframe>
 
                         <div className="contacts">
                             <div className="card">
@@ -508,11 +578,11 @@ const HomePage = () => {
                                     </div>
                                 </div>
                                 <div className="card-footer border-top-0">
-                                    <img src="/telegram-white.png" alt="" className="mr-2"/>
-                                    <img src="/meta-white.png" alt="" className="mx-2"/>
-                                    <img src="/instagram-white.png" alt="" className="mx-2"/>
-                                    <img src="/twitter-white.png" alt="" className="mx-2"/>
-                                    <img src="/youtube-white.png" alt="" className="mx-2"/>
+                                    <img src="telegram-white.png" alt="" className="mr-2"/>
+                                    <img src="meta-white.png" alt="" className="mx-2"/>
+                                    <img src="instagram-white.png" alt="" className="mx-2"/>
+                                    <img src="twitter-white.png" alt="" className="mx-2"/>
+                                    <img src="youtube-white.png" alt="" className="mx-2"/>
                                 </div>
                             </div>
                         </div>
@@ -525,7 +595,7 @@ const HomePage = () => {
                     <div className="row">
                         <div className="col-5 footer-logo">
                             <div className="d-flex align-items-center">
-                                <img src="/logo.png" alt=""/>
+                                <img src="logo.png" alt=""/>
 
                                 <div className="ml-3">
                                     <p className="mb-0 font-family-mont-semi-bold">We work only for travellers</p>
@@ -566,14 +636,14 @@ const HomePage = () => {
                                 <h6 className="font-family-regular">Contact</h6>
                             </div>
                             <div className="d-flex flex-column justify-content-center mt-3">
-                                <div className="mb-3"><img src="/email.png" alt=""/> <span
+                                <div className="mb-3"><img src="email.png" alt=""/> <span
                                     className="ml-2 font-family-light text-footer">travelBox@email.com</span></div>
 
-                                <div className="mb-3"><img src="/phone-icon.png" alt=""/> <span
+                                <div className="mb-3"><img src="phone-icon.png" alt=""/> <span
                                     className="ml-2 font-family-light text-footer">+998(93) 436 - 63 -31</span>
                                 </div>
 
-                                <div className="mb-3 d-flex align-items-center"><img src="/location.png" alt=""/> <p
+                                <div className="mb-3 d-flex align-items-center"><img src="location.png" alt=""/> <p
                                     className="ml-2 mb-0 font-family-light text-footer">Toshkent shahar, 100017, Yunusobod
                                     tumani, Navoiy ko`chasi, 1</p>
                                 </div>
@@ -593,7 +663,6 @@ const HomePage = () => {
                     2021 (c) — Cosmos Soft Products
                 </div>
             </div>
-
         </div>
     );
 };
