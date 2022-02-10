@@ -96,20 +96,20 @@ body {
 
   section {
     &#header {
-      height: 100vh;
+      //height: 100vh;
       background-image: url("/images/bg.png");
       background-repeat: no-repeat;
       background-size: 100% 100%;
       padding-bottom: 100px;
 
-      .container {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+      //.container {
+      //  height: 100%;
+      //  display: flex;
+      //  flex-direction: column;
+      //  justify-content: space-between;
 
         .navbar {
-          .navbar-nav {
+          .nav-links {
             .nav-item {
               margin: 50px 15px;
 
@@ -127,35 +127,38 @@ body {
           }
         }
 
-        .row {
-          .col-8 {
-            .main-text {
-              font-size: 72px;
-              color: $color-main;
-            }
+        .navbar-mobile{
+          display: none;
+        }
 
-            .text {
-              font-size: 28px;
-              color: $color-main;
-              padding: 22px 100px 80px;
-            }
+        .header-main-part {
+          width: 75%;
+          .main-text {
+            font-size: 72px;
+            color: $color-main;
+          }
 
-            .btn-header {
-              width: 300px;
-              height: 80px;
-              border-radius: 50px;
-              background-color: $color-main;
-              color: #ffffff;
-              font-size: 24px;
+          .text {
+            font-size: 28px;
+            color: $color-main;
+            padding: 22px 100px 80px;
+          }
 
-              &:hover {
-                background-color: $color-yellow;
-              }
+          .btn-header {
+            width: 300px;
+            height: 80px;
+            border-radius: 50px;
+            background-color: $color-main;
+            color: #ffffff;
+            font-size: 24px;
+
+            &:hover {
+              background-color: $color-yellow;
             }
           }
         }
       }
-    }
+    //}
 
     &#tour-programmes {
       background-color: #fdfdfd;
@@ -175,24 +178,23 @@ body {
         }
       }
 
-      .row {
-        .card-style {
-          .card {
-            border-radius: 25px;
-            box-shadow: 0px 0px 20px 1px rgba(26, 0, 92, 0.1);
+      .card-style {
+        .card {
+          height: 445px;
+          border-radius: 25px;
+          box-shadow: 0px 0px 20px 1px rgba(26, 0, 92, 0.1);
 
-            .card-header {
-              border-radius: 25px;
+          .card-header {
+            border-radius: 25px;
+          }
+
+          .card-body {
+            h5 {
+              font-size: 24px;
             }
 
-            .card-body {
-              h5 {
-                font-size: 24px;
-              }
-
-              p {
-                font-size: 16px;
-              }
+            p {
+              font-size: 16px;
             }
           }
         }
@@ -216,133 +218,131 @@ body {
     &#destination {
       background-color: #fdfdfd;
 
-      .container {
-        .title-destination {
-          //padding-top: 85px;
-          margin-bottom: 50px;
+      .title-destination {
 
-          p {
-            font-size: 36px;
-            color: $color-main;
-          }
+        margin-bottom: 50px;
 
-          h2 {
-            font-size: 64px;
-            color: $color-yellow;
-          }
+        p {
+          font-size: 36px;
+          color: $color-main;
         }
 
-        .box {
-          margin: 4% auto;
-          width: 300px;
-          height: 230px;
-          position: relative;
-          perspective: 1000px;
+        h2 {
+          font-size: 64px;
+          color: $color-yellow;
         }
+      }
 
-        #carousel {
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          transform-style: preserve-3d;
-          animation: rotation 20s infinite linear;
-        }
+      .box {
+        margin: 4% auto;
+        width: 300px;
+        height: 230px;
+        position: relative;
+        perspective: 1000px;
+      }
 
-        #carousel:hover {
-          animation-play-state: paused;
+      #carousel {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transform-style: preserve-3d;
+        animation: rotation 20s infinite linear;
+      }
 
-        }
+      #carousel:hover {
+        animation-play-state: paused;
 
-        #carousel figure {
-          display: block;
-          position: absolute;
-          width: 280px;
-          height: 200px;
-          left: 10px;
-          top: 10px;
-          background: white;
-          overflow: hidden;
-          border: solid 1px $color-main;
-          border-radius: 25px;
+      }
 
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-
-          .layer {
-            width: 280px;
-            height: 200px;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            background: rgba(145, 181, 183, 0.5);
-            box-shadow: 0px 0px 20px 10px rgba(26, 0, 92, 0.25);
-            opacity: 0;
-          }
-
-          &:hover {
-            border: solid 1px $color-yellow;
-
-            .layer {
-              opacity: 1;
-            }
-          }
-        }
-
-        #carousel figure:nth-child(1) {
-          transform: rotateY(0deg) translateZ(400px);
-        }
-
-        #carousel figure:nth-child(2) {
-          transform: rotateY(40deg) translateZ(400px);
-        }
-
-        #carousel figure:nth-child(3) {
-          transform: rotateY(80deg) translateZ(400px);
-        }
-
-        #carousel figure:nth-child(4) {
-          transform: rotateY(120deg) translateZ(400px);
-        }
-
-        #carousel figure:nth-child(5) {
-          transform: rotateY(160deg) translateZ(400px);
-        }
-
-        #carousel figure:nth-child(6) {
-          transform: rotateY(200deg) translateZ(400px);
-        }
-
-        #carousel figure:nth-child(7) {
-          transform: rotateY(240deg) translateZ(400px);
-        }
-
-        #carousel figure:nth-child(8) {
-          transform: rotateY(280deg) translateZ(400px);
-        }
-
-        #carousel figure:nth-child(9) {
-          transform: rotateY(320deg) translateZ(400px);
-        }
+      #carousel figure {
+        display: block;
+        position: absolute;
+        width: 280px;
+        height: 200px;
+        left: 10px;
+        top: 10px;
+        background: white;
+        overflow: hidden;
+        border: solid 1px $color-main;
+        border-radius: 25px;
 
         img {
-          cursor: pointer;
-          transition: all .5s ease;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
 
-        img:hover {
-          transform: scale(1.2, 1.2);
+        .layer {
+          width: 280px;
+          height: 200px;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          background: rgba(145, 181, 183, 0.5);
+          box-shadow: 0px 0px 20px 10px rgba(26, 0, 92, 0.25);
+          opacity: 0;
         }
 
-        @keyframes rotation {
-          from {
-            transform: rotateY(0deg);
+        &:hover {
+          border: solid 1px $color-yellow;
+
+          .layer {
+            opacity: 1;
           }
-          to {
-            transform: rotateY(360deg);
-          }
+        }
+      }
+
+      #carousel figure:nth-child(1) {
+        transform: rotateY(0deg) translateZ(400px);
+      }
+
+      #carousel figure:nth-child(2) {
+        transform: rotateY(40deg) translateZ(400px);
+      }
+
+      #carousel figure:nth-child(3) {
+        transform: rotateY(80deg) translateZ(400px);
+      }
+
+      #carousel figure:nth-child(4) {
+        transform: rotateY(120deg) translateZ(400px);
+      }
+
+      #carousel figure:nth-child(5) {
+        transform: rotateY(160deg) translateZ(400px);
+      }
+
+      #carousel figure:nth-child(6) {
+        transform: rotateY(200deg) translateZ(400px);
+      }
+
+      #carousel figure:nth-child(7) {
+        transform: rotateY(240deg) translateZ(400px);
+      }
+
+      #carousel figure:nth-child(8) {
+        transform: rotateY(280deg) translateZ(400px);
+      }
+
+      #carousel figure:nth-child(9) {
+        transform: rotateY(320deg) translateZ(400px);
+      }
+
+      img {
+        cursor: pointer;
+        transition: all .5s ease;
+      }
+
+      img:hover {
+        transform: scale(1.2, 1.2);
+      }
+
+      @keyframes rotation {
+        from {
+          transform: rotateY(0deg);
+        }
+        to {
+          transform: rotateY(360deg);
         }
       }
     }
@@ -535,6 +535,138 @@ body {
              font-size: 18px;
            }
          }
+        }
+      }
+    }
+  }
+}
+
+
+
+@media(max-width: 992px){
+  body{
+    section{
+      &#header{
+          .navbar{
+            display: none;
+          }
+          .navbar-mobile{
+            transition: all 0.1s linear;
+            z-index: 2;
+            width: 100%;
+            display:  flex;
+            .menu-icon{
+              img{
+                width: 32px;
+                height: 32px;
+              }
+            }
+            .navbar-nav{
+              position: fixed;
+              background-color: $color-yellow;
+              width: 100%;
+              height: 100%;
+              top: 90px;
+              left: -100%;
+              display: flex;
+              align-items: center;
+              transition: all 0.1s linear;
+              padding-top: 20px;
+             .nav-item{
+               .nav-link{
+                 color: white;
+               }
+             }
+              &.visible{
+                left: 0;
+              }
+            }
+
+            .logo-content{
+
+            }
+            &.navbar-visible{
+              background-color: white;
+              position: fixed;
+            }
+          }
+
+          .header-main-part{
+            margin-top: 15px;
+            .main-text{
+              font-size: 36px;
+              line-height: 40px;
+            }
+            .text{
+              font-size: 18px;
+              padding: 22px 50px 50px;
+            }
+
+            .btn-header{
+              width: 250px;
+              height: 70px;
+              font-size: 20px;
+            }
+          }
+        }
+      &#tour-programmes{
+        .title-tour{
+          p{
+            font-size: 28px;
+          }
+          h2{
+            font-size: 48px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 768px){
+  body{
+    section{
+      &#tour-programmes{
+        .title-tour{
+          p{
+            font-size: 22px;
+          }
+          h2{
+            font-size: 36px;
+          }
+        }
+        .card-style{
+          .card{
+            height: 550px;
+          }
+        }
+      }
+
+      &#destination{
+        .title-destination{
+          p{
+            font-size: 22px;
+          }
+          h2{
+            font-size: 36px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 375px){
+  body{
+    section{
+      &#tour-programmes{
+        .title-tour{
+          text-align: center;
+        }
+        .card-style{
+          .card{
+            height: 450px;
+          }
         }
       }
     }

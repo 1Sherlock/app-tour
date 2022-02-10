@@ -1,22 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Card, CardBody, Button} from "reactstrap";
 import {UncontrolledCollapse} from "reactstrap";
-
-const showMore = () => {
-
-};
+import {Carousel} from "reactstrap";
 
 
 const App = () => {
+
+    const [isOpen, setIsOpen] = useState(false);
+
+
     return (<>
         <section id="header">
-            <div className="container">
-                <div className="navbar navbar-expand-sm justify-content-between">
+            <div className="navbar navbar-expand-sm justify-content-between">
+                <div className="container">
                     <a href="#" className="navbar-brand">
                         <img src="logo.png" alt="" className=""/>
                     </a>
 
-                    <ul className="navbar-nav">
+                    <ul className="navbar-nav nav-links">
                         <li className="nav-item"><a href="#" className="nav-link font-family-medium">Tour
                             programmes</a></li>
                         <li className="nav-item"><a href="#"
@@ -28,10 +29,41 @@ const App = () => {
                         <li className="nav-item"><a href="#" className="nav-link font-family-medium">Blog</a></li>
                     </ul>
                 </div>
+            </div>
 
+            <div className={`navbar-mobile ${isOpen ? "navbar-visible" : ""}`}>
+                <div className="container">
+                    <div className="d-flex justify-content-between w-100 align-items-center logo-content">
+                        <a href="#" className="navbar-brand">
+                            <img src="logo.png" alt="" className=""/>
+                        </a>
+
+                        <button type="button" className="menu-icon btn shadow-none" onClick={() => setIsOpen(!isOpen)}>
+                            <img src="menu.png" alt="" className=""/>
+                        </button>
+                    </div>
+
+
+                </div>
+
+                <ul  className={`navbar-nav ${isOpen ? "visible" : ""}`}>
+                    <li className="nav-item"><a href="#" className="nav-link font-family-medium">Tour
+                        programmes</a></li>
+                    <li className="nav-item"><a href="#"
+                                                className="nav-link font-family-medium">Destinations</a></li>
+                    <li className="nav-item"><a href="#" className="nav-link font-family-medium">Contacts</a>
+                    </li>
+                    <li className="nav-item"><a href="#" className="nav-link font-family-medium">Need help?</a>
+                    </li>
+                    <li className="nav-item"><a href="#" className="nav-link font-family-medium">Blog</a></li>
+                </ul>
+
+            </div>
+
+            <div className="container">
                 <div className="row">
-                    <div className="col-8 offset-2">
-                        <div className="d-flex flex-column align-items-center justify-content-center text-center">
+                    <div className="d-flex flex-column align-items-center justify-content-center text-center">
+                        <div className="header-main-part">
                             <h2 className="main-text font-family-mont-semi-bold mb-0">Let`s go to travel with our
                                 company</h2>
                             <p className="text font-family-regular mb-0">World is a book, those who don't travel
@@ -41,7 +73,6 @@ const App = () => {
                             </button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -56,7 +87,7 @@ const App = () => {
                 </div>
 
                 <div className="row">
-                    <div className="col-4 card-style mb-3">
+                    <div className="col-lg-4 col-md-6 col-sm-12 card-style mb-3">
                         <div className="card border-0">
                             <div className="card-header border-0 p-0">
                                 <img src="card3.png" alt="" className="w-100"/>
@@ -79,7 +110,7 @@ const App = () => {
                         </div>
                     </div>
 
-                    <div className="col-4 card-style mb-3">
+                    <div className="col-lg-4 col-md-6 col-sm-12 card-style mb-3">
                         <div className="card border-0">
                             <div className="card-header border-0 p-0">
                                 <img src="card2.png" alt="" className="w-100"/>
@@ -102,7 +133,7 @@ const App = () => {
                         </div>
                     </div>
 
-                    <div className="col-4 card-style mb-3">
+                    <div className="col-lg-4 col-md-6 col-sm-12 card-style mb-3">
                         <div className="card border-0">
                             <div className="card-header border-0 p-0">
                                 <img src="card1.png" alt="" className="w-100"/>
@@ -126,7 +157,7 @@ const App = () => {
                         </div>
                     </div>
 
-                    <div className="col-4 card-style mb-3">
+                    <div className="col-lg-4 col-md-6 col-sm-12 card-style mb-3">
                         <div className="card border-0">
                             <div className="card-header border-0 p-0">
                                 <img src="card3.png" alt="" className="w-100"/>
@@ -149,7 +180,7 @@ const App = () => {
                         </div>
                     </div>
 
-                    <div className="col-4 card-style mb-3">
+                    <div className="col-lg-4 col-md-6 col-sm-12 card-style mb-3">
                         <div className="card border-0">
                             <div className="card-header border-0 p-0">
                                 <img src="card2.png" alt="" className="w-100"/>
@@ -172,7 +203,7 @@ const App = () => {
                         </div>
                     </div>
 
-                    <div className="col-4 card-style mb-3">
+                    <div className="col-lg-4 col-md-6 col-sm-12 card-style mb-3">
                         <div className="card border-0">
                             <div className="card-header border-0 p-0">
                                 <img src="card1.png" alt="" className="w-100"/>
@@ -198,8 +229,7 @@ const App = () => {
                 </div>
 
                 <div className="d-flex align-items-center justify-content-center">
-                    <button className="btn text-white btn-show font-family-light shadow-none" type="button"
-                            onClick={showMore}>Show more...
+                    <button className="btn text-white btn-show font-family-light shadow-none" type="button">Show more...
                     </button>
                 </div>
             </div>
@@ -213,7 +243,7 @@ const App = () => {
                 </div>
 
                 <div className="row align-items-center justify-content-center">
-                    <div className="box">
+                    <div className="box d-none">
                         <div id="carousel">
                             <figure>
                                 <img src="carousel-1.jpg" alt=""/>
@@ -280,6 +310,44 @@ const App = () => {
                             </figure>
                         </div>
                     </div>
+
+                    {/*<Carousel fade>*/}
+                    {/*    <Carousel.Item>*/}
+                    {/*        <img*/}
+                    {/*            className="d-block w-100"*/}
+                    {/*            src="holder.js/800x400?text=First slide&bg=373940"*/}
+                    {/*            alt="First slide"*/}
+                    {/*        />*/}
+                    {/*        <Carousel.Caption>*/}
+                    {/*            <h3>First slide label</h3>*/}
+                    {/*            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>*/}
+                    {/*        </Carousel.Caption>*/}
+                    {/*    </Carousel.Item>*/}
+                    {/*    <Carousel.Item>*/}
+                    {/*        <img*/}
+                    {/*            className="d-block w-100"*/}
+                    {/*            src="holder.js/800x400?text=Second slide&bg=282c34"*/}
+                    {/*            alt="Second slide"*/}
+                    {/*        />*/}
+
+                    {/*        <Carousel.Caption>*/}
+                    {/*            <h3>Second slide label</h3>*/}
+                    {/*            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>*/}
+                    {/*        </Carousel.Caption>*/}
+                    {/*    </Carousel.Item>*/}
+                    {/*    <Carousel.Item>*/}
+                    {/*        <img*/}
+                    {/*            className="d-block w-100"*/}
+                    {/*            src="holder.js/800x400?text=Third slide&bg=20232a"*/}
+                    {/*            alt="Third slide"*/}
+                    {/*        />*/}
+
+                    {/*        <Carousel.Caption>*/}
+                    {/*            <h3>Third slide label</h3>*/}
+                    {/*            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>*/}
+                    {/*        </Carousel.Caption>*/}
+                    {/*    </Carousel.Item>*/}
+                    {/*</Carousel>*/}
                 </div>
             </div>
         </section>
