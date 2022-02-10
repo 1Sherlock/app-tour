@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/app-tour.iml" filepath="$PROJECT_DIR$/.idea/app-tour.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app-tour-client/app-tour-client.iml" filepath="$PROJECT_DIR$/app-tour-client/app-tour-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app-tour-server/app-tour-server.iml" filepath="$PROJECT_DIR$/app-tour-server/app-tour-server.iml" />
     </modules>
   </component>
 </project>
