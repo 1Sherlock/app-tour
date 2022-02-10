@@ -31,19 +31,18 @@ public class AuthService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String phoneNumber) throws UsernameNotFoundException {
-        return userRepository.findByPhoneNumber(phoneNumber).orElseThrow(() -> new UsernameNotFoundException("Номер телефона не найдено: " + phoneNumber));
+        return userRepository.findByPhoneNumber(phoneNumber).orElseThrow(() -> new UsernameNotFoundException("Bunday telefon raqam topilmadi: " + phoneNumber));
     }
 
     public UserDetails loadUserById(UUID userId) {
-        return userRepository.findById(userId).orElseThrow(() -> new UsernameNotFoundException("ИД не найдено: " + userId));
+        return userRepository.findById(userId).orElseThrow(() -> new UsernameNotFoundException("ID not found: " + userId));
     }
-
 
     public ApiResponse register(ReqSignUp reqSignUp) {
         Optional<User> optionalUser = userRepository.findByPhoneNumber(reqSignUp.getPhoneNumber());
 
         if (optionalUser.isPresent()) {
-            return new ApiResponse(false, "Пользователь с такими данными зарегистрирован!");
+            return new ApiResponse(false, "Bunday foydalanuvchi ro'yhatdan o'tgan!");
         } else {
             userRepository.save(
                     new User(
@@ -54,7 +53,7 @@ public class AuthService implements UserDetailsService {
                             roleRepository.findAllByName(RoleName.ROLE_USER),
                             reqSignUp.getEmail()
                     ));
-            return new ApiResponse(true, "Регистрация прошла успешно.");
+            return new ApiResponse(true, "Ro'yhatdan o'tish muvafaqqiyatli amalga oshirildi.");
         }
     }
 
@@ -62,15 +61,14 @@ public class AuthService implements UserDetailsService {
         Optional<User> optionalUser = userRepository.findByPhoneNumber(reqSignIn.getPhoneNumber());
 
         if (optionalUser.isPresent()) {
-
             User user = optionalUser.get();
             if (passwordEncoder.matches(reqSignIn.getPassword(), user.getPassword())) {
                 return new ApiResponse(true, "ok");
             } else {
-                return new ApiResponse(false, "Логин или пароль введено неправильно");
+                return new ApiResponse(false, "Telefon raqam yoki parol noto'g'ri");
             }
         } else {
-            return new ApiResponse(false, "Пользователь с такими данными не зарегистрирован!");
+            return new ApiResponse(false, "Telefon raqam yoki parol noto'g'ri");
         }
     }
 }
