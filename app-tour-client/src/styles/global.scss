@@ -86,6 +86,30 @@ $color-main: #1A005C;
 $color-bg: #fafafa;
 $color-lightgrey: #E8E8E1;
 
+.icon {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+
+  background-color: $color-main;
+
+  &-profile {
+    mask-image: url("/images/profile.svg");
+    -webkit-mask-image: url("/images/profile.svg");
+  }
+}
+
+.cursor {
+  cursor: pointer;
+}
+
 body {
   .yellow-line {
     width: 100%;
@@ -121,7 +145,9 @@ body {
             border-bottom: 3px solid transparent;
 
             &:hover {
-              border-bottom-color: $color-yellow;
+              &:not(:last-child) {
+                border-bottom-color: $color-yellow;
+              }
             }
           }
         }
@@ -381,7 +407,7 @@ body {
               font-size: 32px;
             }
 
-            h4{
+            h4 {
               font-size: 28px;
             }
 
@@ -688,11 +714,12 @@ body {
         }
       }
 
-      &#destination{
-        .box{
+      &#destination {
+        .box {
           display: none;
         }
-        .new-carousel{
+
+        .new-carousel {
           display: block;
         }
       }
@@ -766,11 +793,12 @@ body {
           }
         }
 
-        .new-carousel{
-          .figure{
+        .new-carousel {
+          .figure {
             border: none;
             height: 300px;
-            .layer{
+
+            .layer {
               height: 300px;
               border: none;
             }
@@ -886,11 +914,12 @@ body {
         }
       }
 
-      &#destination{
-        .new-carousel{
-          .figure{
+      &#destination {
+        .new-carousel {
+          .figure {
             height: 200px;
-            .layer{
+
+            .layer {
               height: 200px;
             }
           }

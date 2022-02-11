@@ -26,7 +26,7 @@ const HomePage = () => {
                             <img src="/logo.png" alt="" className=""/>
                         </a>
 
-                        <ul className="navbar-nav nav-links">
+                        <ul className="navbar-nav nav-links align-items-center">
                             <li className="nav-item"><a href="#" className="nav-link font-family-medium">Tour
                                 programmes</a></li>
                             <li className="nav-item"><a href="#"
@@ -36,6 +36,7 @@ const HomePage = () => {
                             <li className="nav-item"><a href="#" className="nav-link font-family-medium">Need help?</a>
                             </li>
                             <li className="nav-item"><a href="#" className="nav-link font-family-medium">Blog</a></li>
+                            <li className="nav-item d-flex align-items-center justify-content-center cursor m-0"><span className="icon icon-profile"/></li>
                         </ul>
                     </div>
                 </div>
@@ -705,6 +706,8 @@ const HomePage = () => {
                     2021 (c) — Cosmos Soft Products
                 </div>
             </div>
+
+
         </div>
     );
 };
