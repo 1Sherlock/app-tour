@@ -5,6 +5,7 @@ import {Carousel} from "reactstrap";
 import {ToastContainer} from "react-toastify";
 import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 import HomePage from "./pages/HomePage";
+import AdminLayout from "./layouts/AdminLayout";
 
 
 
@@ -20,6 +21,8 @@ const App = () => {
             <Switch>
                 <Route exact path="/"><Redirect to="/home" /></Route>
                 <Route path="/home" component={HomePage} />
+                <Route path="/admin" component={AdminLayout}/>
+
             </Switch>
         </BrowserRouter>
         <ToastContainer/>
