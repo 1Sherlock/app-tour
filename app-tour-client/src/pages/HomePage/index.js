@@ -1,9 +1,19 @@
-import React, {useState} from 'react';
+import React, {useState, Component} from 'react';
 import {Button, Card, CardBody, UncontrolledCollapse} from "reactstrap";
-const showMore = () => {
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-};
 const HomePage = () => {
+
+        const settings = {
+            dots: false,
+            autoplay: true,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            slidesToScroll: 1
+        };
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -242,7 +252,7 @@ const HomePage = () => {
                     </div>
 
                     <div className="row align-items-center justify-content-center">
-                        <div className="box d-none">
+                        <div className="box">
                             <div id="carousel">
                                 <figure>
                                     <img src="/carousel-1.jpg" alt=""/>
@@ -310,43 +320,78 @@ const HomePage = () => {
                             </div>
                         </div>
 
-                        {/*<Carousel fade>*/}
-                        {/*    <Carousel.Item>*/}
-                        {/*        <img*/}
-                        {/*            className="d-block w-100"*/}
-                        {/*            src="/holder.js/800x400?text=First slide&bg=373940"*/}
-                        {/*            alt="First slide"*/}
-                        {/*        />*/}
-                        {/*        <Carousel.Caption>*/}
-                        {/*            <h3>First slide label</h3>*/}
-                        {/*            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>*/}
-                        {/*        </Carousel.Caption>*/}
-                        {/*    </Carousel.Item>*/}
-                        {/*    <Carousel.Item>*/}
-                        {/*        <img*/}
-                        {/*            className="d-block w-100"*/}
-                        {/*            src="/holder.js/800x400?text=Second slide&bg=282c34"*/}
-                        {/*            alt="Second slide"*/}
-                        {/*        />*/}
 
-                        {/*        <Carousel.Caption>*/}
-                        {/*            <h3>Second slide label</h3>*/}
-                        {/*            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>*/}
-                        {/*        </Carousel.Caption>*/}
-                        {/*    </Carousel.Item>*/}
-                        {/*    <Carousel.Item>*/}
-                        {/*        <img*/}
-                        {/*            className="d-block w-100"*/}
-                        {/*            src="/holder.js/800x400?text=Third slide&bg=20232a"*/}
-                        {/*            alt="Third slide"*/}
-                        {/*        />*/}
+                    </div>
+                    <div className="new-carousel">
+                        <Slider {...settings}>
+                            <div className="figure">
+                                <img src="/carousel-1.jpg" alt=""/>
+                                <div className="layer d-flex flex-column align-items-center justify-content-center">
+                                    <h5 className="text-white">Keukenhof</h5>
+                                    <h4 className="text-white">Holand</h4>
+                                </div>
+                            </div>
+                            <div className="figure">
+                                <img src="/carousel-2.jpg" alt=""/>
+                                <div className="layer d-flex flex-column align-items-center justify-content-center">
+                                    <h5 className="text-white">Dubai</h5>
+                                    <h4 className="text-white">UAE</h4>
+                                </div>
+                            </div>
+                            <div className="figure">
+                                <img src="/carousel-3.jpg" alt=""/>
+                                <div className="layer d-flex flex-column align-items-center justify-content-center">
+                                    <h5 className="text-white">Colosseum</h5>
+                                    <h4 className="text-white">Italy</h4>
+                                </div>
+                            </div>
+                            <div className="figure">
+                                <img src="/carousel-4.jpg" alt=""/>
+                                <div className="layer d-flex flex-column align-items-center justify-content-center">
+                                    <h5 className="text-white">Bodrum</h5>
+                                    <h4 className="text-white">Turkey</h4>
+                                </div>
+                            </div>
+                            <div className="figure">
+                                <img src="/carousel-5.jpg" alt=""/>
+                                <div className="layer d-flex flex-column align-items-center justify-content-center">
+                                    <h5 className="text-white">Glacier Express</h5>
+                                    <h4 className="text-white">Switzerland</h4>
+                                </div>
+                            </div>
 
-                        {/*        <Carousel.Caption>*/}
-                        {/*            <h3>Third slide label</h3>*/}
-                        {/*            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>*/}
-                        {/*        </Carousel.Caption>*/}
-                        {/*    </Carousel.Item>*/}
-                        {/*</Carousel>*/}
+                            <div className="figure">
+                                <img src="/carousel-6.jpg" alt=""/>
+                                <div className="layer d-flex flex-column align-items-center justify-content-center">
+                                    <h5 className="text-white">Anantara Kihavah</h5>
+                                    <h4 className="text-white">Maldives</h4>
+                                </div>
+                            </div>
+
+                            <div className="figure">
+                                <img src="/carousel-7.jpg" alt=""/>
+                                <div className="layer d-flex flex-column align-items-center justify-content-center">
+                                    <h5 className="text-white">Taj Mahal</h5>
+                                    <h4 className="text-white">India</h4>
+                                </div>
+                            </div>
+
+                            <div className="figure">
+                                <img src="/carousel-8.jpg" alt=""/>
+                                <div className="layer d-flex flex-column align-items-center justify-content-center">
+                                    <h5 className="text-white"></h5>
+                                    <h4 className="text-white">Norvegia</h4>
+                                </div>
+                            </div>
+
+                            <div className="figure">
+                                <img src="/carousel-9.jpg" alt=""/>
+                                <div className="layer d-flex flex-column align-items-center justify-content-center">
+                                    <h5 className="text-white"></h5>
+                                    <h4 className="text-white">Hawaii</h4>
+                                </div>
+                            </div>
+                        </Slider>
                     </div>
                 </div>
             </section>
@@ -358,8 +403,8 @@ const HomePage = () => {
                         <h2 className="font-family-mont-regular">In the WORLD</h2>
                     </div>
 
-                    <div className="d-flex justify-content-between">
-                        <div className="col-6">
+                    <div className="row justify-content-between">
+                        <div className="col-md-6 col-sm-12">
                             <div className="card border-0 news">
                                 <h3 className="news-title font-family-bold">WHO CALLS TRAVEL BANS FUTILE; RECOMMENDS NATIONS
                                     TO LIFT OR RELAX
@@ -389,7 +434,7 @@ const HomePage = () => {
                                 <img src="/news3.png" alt="" className=""/>
                             </div>
                         </div>
-                        <div className="col-6">
+                        <div className="col-md-6 col-sm-12">
                             <div className="card border-0 news">
                                 <h3 className="news-title font-family-bold">
                                     Tourism Ireland welcomes lifting of Covid-19 restrictions
@@ -593,8 +638,8 @@ const HomePage = () => {
             <section id="footer">
                 <div className="container">
                     <div className="row">
-                        <div className="col-5 footer-logo">
-                            <div className="d-flex align-items-center">
+                        <div className="col-lg-6 col-md-9 col-sm-12 mb-sm-4 mb-lg-0 footer-logo">
+                            <div className="logo-part">
                                 <img src="/logo.png" alt=""/>
 
                                 <div className="ml-3">
@@ -611,12 +656,11 @@ const HomePage = () => {
                             </div>
                         </div>
 
-                        <div className="col-2 footer-menu d-flex flex-column align-items-center">
+                        <div className="col-lg-2 col-md-3 mb-lg-0 mb-md-3 col-sm-4  footer-menu d-flex flex-column align-items-center">
                             <div className="title-menu">
                                 <h6 className="font-family-regular">Menu</h6>
                             </div>
-                            <ul className="navbar-nav align-items-center+
-                        ">
+                            <ul className="navbar-nav align-items-center">
                                 <li className="nav-item"><a href="#"
                                                             className="nav-link font-family-light text-dark">Home</a>
                                 </li>
@@ -631,7 +675,7 @@ const HomePage = () => {
                             </ul>
                         </div>
 
-                        <div className="col-4 footer-contact">
+                        <div className="col-lg-4 col-md-6 col-sm-8 footer-contact">
                             <div className="title-footer-contact">
                                 <h6 className="font-family-regular">Contact</h6>
                             </div>
@@ -643,15 +687,13 @@ const HomePage = () => {
                                     className="ml-2 font-family-light text-footer">+998(93) 436 - 63 -31</span>
                                 </div>
 
-                                <div className="mb-3 d-flex align-items-center"><img src="/location.png" alt=""/> <p
-                                    className="ml-2 mb-0 font-family-light text-footer">Toshkent shahar, 100017, Yunusobod
+                                <div className="mb-3 d-flex align-items-center justify-content-center">
+                                    <img src="/location.png" alt="" /> <p
+                                    className="ml-md-2 ml-sm-1 mb-0 font-family-light text-footer">Toshkent shahar, 100017, Yunusobod
                                     tumani, Navoiy ko`chasi, 1</p>
                                 </div>
                             </div>
 
-                            <div className="row-socials">
-                                <a href="#" className=""><img src="" alt="" className=""/></a>
-                            </div>
 
                         </div>
                     </div>

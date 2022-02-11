@@ -108,56 +108,58 @@ body {
       //  flex-direction: column;
       //  justify-content: space-between;
 
-        .navbar {
-          .nav-links {
-            .nav-item {
-              margin: 50px 15px;
+      .navbar {
+        .nav-links {
+          .nav-item {
+            margin: 50px 15px;
 
-              .nav-link {
-                font-size: 18px;
-                color: $color-main;
-              }
-
-              border-bottom: 3px solid transparent;
-
-              &:hover {
-                border-bottom-color: $color-yellow;
-              }
+            .nav-link {
+              font-size: 18px;
+              color: $color-main;
             }
-          }
-        }
 
-        .navbar-mobile{
-          display: none;
-        }
-
-        .header-main-part {
-          width: 75%;
-          .main-text {
-            font-size: 72px;
-            color: $color-main;
-          }
-
-          .text {
-            font-size: 28px;
-            color: $color-main;
-            padding: 22px 100px 80px;
-          }
-
-          .btn-header {
-            width: 300px;
-            height: 80px;
-            border-radius: 50px;
-            background-color: $color-main;
-            color: #ffffff;
-            font-size: 24px;
+            border-bottom: 3px solid transparent;
 
             &:hover {
-              background-color: $color-yellow;
+              border-bottom-color: $color-yellow;
             }
           }
         }
       }
+
+      .navbar-mobile {
+        display: none;
+      }
+
+      .header-main-part {
+        width: 75%;
+
+        .main-text {
+          font-size: 72px;
+          color: $color-main;
+        }
+
+        .text {
+          font-size: 28px;
+          color: $color-main;
+          padding: 22px 100px 80px;
+        }
+
+        .btn-header {
+          width: 300px;
+          height: 80px;
+          border-radius: 50px;
+          background-color: $color-main;
+          color: #ffffff;
+          font-size: 24px;
+
+          &:hover {
+            background-color: $color-yellow;
+          }
+        }
+      }
+    }
+
     //}
 
     &#tour-programmes {
@@ -239,187 +241,234 @@ body {
         height: 230px;
         position: relative;
         perspective: 1000px;
-      }
 
-      #carousel {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        transform-style: preserve-3d;
-        animation: rotation 20s infinite linear;
-      }
-
-      #carousel:hover {
-        animation-play-state: paused;
-
-      }
-
-      #carousel figure {
-        display: block;
-        position: absolute;
-        width: 280px;
-        height: 200px;
-        left: 10px;
-        top: 10px;
-        background: white;
-        overflow: hidden;
-        border: solid 1px $color-main;
-        border-radius: 25px;
-
-        img {
+        #carousel {
           width: 100%;
           height: 100%;
-          object-fit: cover;
+          position: absolute;
+          transform-style: preserve-3d;
+          animation: rotation 20s infinite linear;
         }
 
-        .layer {
+        #carousel:hover {
+          animation-play-state: paused;
+
+        }
+
+        #carousel figure {
+          display: block;
+          position: absolute;
           width: 280px;
           height: 200px;
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          background: rgba(145, 181, 183, 0.5);
-          box-shadow: 0px 0px 20px 10px rgba(26, 0, 92, 0.25);
-          opacity: 0;
-        }
+          left: 10px;
+          top: 10px;
+          background: white;
+          overflow: hidden;
+          border: solid 1px $color-main;
+          border-radius: 25px;
 
-        &:hover {
-          border: solid 1px $color-yellow;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
 
           .layer {
-            opacity: 1;
+            width: 280px;
+            height: 200px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: rgba(145, 181, 183, 0.5);
+            box-shadow: 0px 0px 20px 10px rgba(26, 0, 92, 0.25);
+            opacity: 0;
+          }
+
+          &:hover {
+            border: solid 1px $color-yellow;
+
+            .layer {
+              opacity: 1;
+            }
+          }
+        }
+
+        #carousel figure:nth-child(1) {
+          transform: rotateY(0deg) translateZ(400px);
+        }
+
+        #carousel figure:nth-child(2) {
+          transform: rotateY(40deg) translateZ(400px);
+        }
+
+        #carousel figure:nth-child(3) {
+          transform: rotateY(80deg) translateZ(400px);
+        }
+
+        #carousel figure:nth-child(4) {
+          transform: rotateY(120deg) translateZ(400px);
+        }
+
+        #carousel figure:nth-child(5) {
+          transform: rotateY(160deg) translateZ(400px);
+        }
+
+        #carousel figure:nth-child(6) {
+          transform: rotateY(200deg) translateZ(400px);
+        }
+
+        #carousel figure:nth-child(7) {
+          transform: rotateY(240deg) translateZ(400px);
+        }
+
+        #carousel figure:nth-child(8) {
+          transform: rotateY(280deg) translateZ(400px);
+        }
+
+        #carousel figure:nth-child(9) {
+          transform: rotateY(320deg) translateZ(400px);
+        }
+
+        img {
+          cursor: pointer;
+          transition: all .5s ease;
+        }
+
+        img:hover {
+          transform: scale(1.2, 1.2);
+        }
+
+        @keyframes rotation {
+          from {
+            transform: rotateY(0deg);
+          }
+          to {
+            transform: rotateY(360deg);
           }
         }
       }
 
-      #carousel figure:nth-child(1) {
-        transform: rotateY(0deg) translateZ(400px);
-      }
+      .new-carousel {
+        display: none;
+        padding: 15px 25px;
 
-      #carousel figure:nth-child(2) {
-        transform: rotateY(40deg) translateZ(400px);
-      }
+        .figure {
+          position: relative;
+          width: 80%;
+          height: 500px;
+          background: white;
+          overflow: hidden;
+          border: solid 3px $color-main;
+          border-radius: 25px;
 
-      #carousel figure:nth-child(3) {
-        transform: rotateY(80deg) translateZ(400px);
-      }
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
 
-      #carousel figure:nth-child(4) {
-        transform: rotateY(120deg) translateZ(400px);
-      }
+          .layer {
+            width: 100%;
+            height: 500px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: rgba(145, 181, 183, 0.5);
+            box-shadow: 0px 0px 20px 10px rgba(26, 0, 92, 0.25);
+            opacity: 0;
 
-      #carousel figure:nth-child(5) {
-        transform: rotateY(160deg) translateZ(400px);
-      }
+            h5 {
+              font-size: 32px;
+            }
 
-      #carousel figure:nth-child(6) {
-        transform: rotateY(200deg) translateZ(400px);
-      }
+            h4{
+              font-size: 28px;
+            }
 
-      #carousel figure:nth-child(7) {
-        transform: rotateY(240deg) translateZ(400px);
-      }
+          }
 
-      #carousel figure:nth-child(8) {
-        transform: rotateY(280deg) translateZ(400px);
-      }
+          &:hover {
+            border: solid 1px $color-yellow;
 
-      #carousel figure:nth-child(9) {
-        transform: rotateY(320deg) translateZ(400px);
-      }
-
-      img {
-        cursor: pointer;
-        transition: all .5s ease;
-      }
-
-      img:hover {
-        transform: scale(1.2, 1.2);
-      }
-
-      @keyframes rotation {
-        from {
-          transform: rotateY(0deg);
-        }
-        to {
-          transform: rotateY(360deg);
+            .layer {
+              opacity: 1;
+            }
+          }
         }
       }
+
     }
 
-    &#blog{
-      .container{
-        .title-blog {
-          padding-top: 85px;
-          margin-bottom: 50px;
+    &#blog {
+      .title-blog {
+        padding-top: 85px;
+        margin-bottom: 50px;
 
-          p {
-            font-size: 36px;
-            color: $color-main;
-          }
-
-          h2 {
-            font-size: 64px;
-            color: $color-yellow;
-          }
+        p {
+          font-size: 36px;
+          color: $color-main;
         }
 
-        .news{
-          margin-bottom: 40px;
-          .news-title{
-            font-size: 24px;
-          }
-          .news-text{
-            font-size: 18px;
-          }
+        h2 {
+          font-size: 64px;
+          color: $color-yellow;
+        }
+      }
+
+      .news {
+        margin-bottom: 40px;
+
+        .news-title {
+          font-size: 24px;
         }
 
+        .news-text {
+          font-size: 18px;
+        }
       }
     }
 
     &#map {
-      .container {
-        .title-contact {
-          padding-top: 85px;
-          margin-bottom: 50px;
+      .title-contact {
+        padding-top: 85px;
+        margin-bottom: 50px;
 
-          p {
-            font-size: 36px;
-            color: $color-main;
-          }
-
-          h2 {
-            font-size: 64px;
-            color: $color-yellow;
-          }
+        p {
+          font-size: 36px;
+          color: $color-main;
         }
 
-        .map-zone {
-          box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
-          position: relative;
+        h2 {
+          font-size: 64px;
+          color: $color-yellow;
+        }
+      }
+
+      .map-zone {
+        box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+        position: relative;
+        width: 100%;
+        height: 500px;
+
+        .map {
+          border: 0;
           width: 100%;
-          height: 500px;
+          height: 100%;
+        }
 
-          .map {
-            border: 0;
-            width: 100%;
-            height: 100%;
-          }
+        .contacts {
+          width: 40%;
+          position: absolute;
+          top: 0;
+          right: 0;
 
-          .contacts {
-            width: 40%;
-            position: absolute;
-            top: 0;
-            right: 0;
+          .card {
+            box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 0px 0px 0px 15px;
 
-            .card {
-              box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.1);
+            .card-footer {
+              background-color: $color-main;
               border-radius: 0px 0px 0px 15px;
-
-              .card-footer {
-                background-color: $color-main;
-                border-radius: 0px 0px 0px 15px;
-              }
             }
           }
         }
@@ -429,58 +478,56 @@ body {
     &#need-help {
       background-color: #fdfdfd;
 
-      .container {
-        .title-need-help {
-          padding-top: 80px;
-          margin-bottom: 50px;
+      .title-need-help {
+        padding-top: 80px;
+        margin-bottom: 50px;
 
-          p {
-            font-size: 36px;
-            color: $color-main;
-          }
-
-          h2 {
-            font-size: 64px;
-            color: $color-yellow;
-          }
+        p {
+          font-size: 36px;
+          color: $color-main;
         }
 
-        .faq {
+        h2 {
+          font-size: 64px;
+          color: $color-yellow;
+        }
+      }
+
+      .faq {
+        width: 100%;
+        padding: 25px;
+        opacity: 0.88;
+        background-color: white;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        //border: 1px solid $color-main;
+        .collapse-button {
           width: 100%;
-          padding: 25px;
-          opacity: 0.88;
           background-color: white;
-          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-          //border: 1px solid $color-main;
-          .collapse-button {
+          border: none;
+          border-top-color: rgba(0, 0, 0, 0.125);
+          border-top-style: solid;
+          border-top-width: 1px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          box-shadow: none;
+          color: $color-main;
+          font-size: 18px;
+          font-family: "Roboto-Regular", sans-serif;
+          border-radius: 0;
+          padding: 15px 20px;
+        }
+
+        .collapse-card {
+          border: none;
+          border-radius: 0;
+          color: #838383;
+
+          .card-body {
+            font-size: 16px;
+            font-family: "Roboto-Light", sans-serif;
             width: 100%;
-            background-color: white;
-            border: none;
-            border-top-color: rgba(0, 0, 0, 0.125);
-            border-top-style: solid;
-            border-top-width: 1px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: none;
-            color: $color-main;
-            font-size: 18px;
-            font-family: "Roboto-Regular", sans-serif;
-            border-radius: 0;
-            padding: 15px 20px;
-          }
-
-          .collapse-card {
-            border: none;
-            border-radius: 0;
-            color: #838383;
-
-            .card-body {
-              font-size: 16px;
-              font-family: "Roboto-Light", sans-serif;
-              width: 100%;
-              padding: 15px 35px 15px 25px;
-            }
+            padding: 15px 35px 15px 25px;
           }
         }
       }
@@ -489,52 +536,64 @@ body {
     &#footer {
       margin-top: 80px;
       background-color: $color-main;
+
       .container {
         padding-top: 25px;
         padding-bottom: 25px;
-        .row{
+
+        .row {
           background-color: white;
           padding-top: 50px;
           padding-bottom: 50px;
           padding-left: 30px;
 
-          .footer-logo{
-            p{
-              font-size: 18px;
-              color: $color-main;
+          .footer-logo {
+            .logo-part {
+              display: flex;
+              align-items: center;
+              justify-content: start;
+
+              p {
+                font-size: 18px;
+                color: $color-main;
+              }
+
+              h4 {
+                font-size: 36px;
+                color: $color-yellow;
+              }
             }
-            h4{
-              font-size: 36px;
-              color: $color-yellow;
-            }
-            .context{
+
+            .context {
               font-size: 18px;
             }
           }
 
-          .footer-menu{
-            .title-menu{
-              h6{
+          .footer-menu {
+            .title-menu {
+              h6 {
                 font-size: 20px;
               }
             }
-            .nav-item{
-              .nav-link{
+
+            .nav-item {
+              .nav-link {
                 font-size: 18px;
               }
             }
           }
 
-         .footer-contact{
-           .title-footer-contact{
-             h6{
-               font-size: 20px;
-             }
-           }
-           .text-footer{
-             font-size: 18px;
-           }
-         }
+          .footer-contact {
+            .title-footer-contact {
+              h6 {
+                font-size: 20px;
+              }
+            }
+
+            .text-footer {
+              font-size: 18px;
+            }
+          }
         }
       }
     }
@@ -542,113 +601,127 @@ body {
 }
 
 
+@media(max-width: 992px) {
+  body {
+    section {
+      &#header {
+        .navbar {
+          display: none;
+        }
 
-@media(max-width: 992px){
-  body{
-    section{
-      &#header{
-          .navbar{
-            display: none;
+        .navbar-mobile {
+          transition: all 0.1s linear;
+          z-index: 2;
+          width: 100%;
+          display: flex;
+
+          .menu-icon {
+            img {
+              width: 32px;
+              height: 32px;
+            }
           }
-          .navbar-mobile{
-            transition: all 0.1s linear;
-            z-index: 2;
+
+          .navbar-nav {
+            position: fixed;
+            background-color: $color-yellow;
             width: 100%;
-            display:  flex;
-            .menu-icon{
-              img{
-                width: 32px;
-                height: 32px;
-              }
-            }
-            .navbar-nav{
-              position: fixed;
-              background-color: $color-yellow;
-              width: 100%;
-              height: 100%;
-              top: 90px;
-              left: -100%;
-              display: flex;
-              align-items: center;
-              transition: all 0.1s linear;
-              padding-top: 20px;
-             .nav-item{
-               .nav-link{
-                 color: white;
-               }
-             }
-              &.visible{
-                left: 0;
+            height: 100%;
+            top: 90px;
+            left: -100%;
+            display: flex;
+            align-items: center;
+            transition: all 0.1s linear;
+            padding-top: 20px;
+
+            .nav-item {
+              .nav-link {
+                color: white;
               }
             }
 
-            .logo-content{
-
-            }
-            &.navbar-visible{
-              background-color: white;
-              position: fixed;
+            &.visible {
+              left: 0;
             }
           }
 
-          .header-main-part{
-            margin-top: 15px;
-            .main-text{
-              font-size: 36px;
-              line-height: 40px;
-            }
-            .text{
-              font-size: 18px;
-              padding: 22px 50px 50px;
-            }
+          .logo-content {
 
-            .btn-header{
-              width: 250px;
-              height: 70px;
-              font-size: 20px;
-            }
+          }
+
+          &.navbar-visible {
+            background-color: white;
+            position: fixed;
           }
         }
-      &#tour-programmes{
-        .title-tour{
-          p{
+
+        .header-main-part {
+          margin-top: 15px;
+
+          .main-text {
+            font-size: 36px;
+            line-height: 40px;
+          }
+
+          .text {
+            font-size: 18px;
+            padding: 22px 50px 50px;
+          }
+
+          .btn-header {
+            width: 250px;
+            height: 70px;
+            font-size: 20px;
+          }
+        }
+      }
+
+      &#tour-programmes {
+        .title-tour {
+          p {
             font-size: 28px;
           }
-          h2{
-            font-size: 48px;
-          }
-        }
-      }
-    }
-  }
-}
 
-@media(max-width: 768px){
-  body{
-    section{
-      &#tour-programmes{
-        .title-tour{
-          p{
-            font-size: 22px;
-          }
-          h2{
-            font-size: 36px;
-          }
-        }
-        .card-style{
-          .card{
-            height: 550px;
+          h2 {
+            font-size: 48px;
           }
         }
       }
 
       &#destination{
-        .title-destination{
-          p{
-            font-size: 22px;
+        .box{
+          display: none;
+        }
+        .new-carousel{
+          display: block;
+        }
+      }
+
+      &#map {
+        .map-zone {
+          display: flex;
+          flex-direction: column;
+
+          .contacts {
+            position: static;
+            width: 100%;
+
+            .card {
+              border-radius: 0;
+
+              .card-footer {
+                background-color: $color-main;
+                border-radius: 0;
+              }
+            }
           }
-          h2{
-            font-size: 36px;
+        }
+      }
+
+      &#footer {
+        .footer-logo {
+          p {
+            font-size: 14px !important;
           }
         }
       }
@@ -656,16 +729,170 @@ body {
   }
 }
 
-@media(max-width: 375px){
-  body{
-    section{
-      &#tour-programmes{
-        .title-tour{
+@media(max-width: 768px) {
+  body {
+    section {
+      &#header {
+        background-image: none;
+        background-color: whitesmoke;
+      }
+
+      &#tour-programmes {
+        .title-tour {
+          p {
+            font-size: 22px;
+          }
+
+          h2 {
+            font-size: 36px;
+          }
+        }
+
+        .card-style {
+          .card {
+            height: 550px;
+          }
+        }
+      }
+
+      &#destination {
+        .title-destination {
+          p {
+            font-size: 22px;
+          }
+
+          h2 {
+            font-size: 36px;
+          }
+        }
+
+        .new-carousel{
+          .figure{
+            border: none;
+            height: 300px;
+            .layer{
+              height: 300px;
+              border: none;
+            }
+          }
+        }
+      }
+
+      &#blog {
+        .title-blog {
+          p {
+            font-size: 22px;
+          }
+
+          h2 {
+            font-size: 36px;
+          }
+        }
+      }
+
+      &#need-help {
+        .title-need-help {
+          p {
+            font-size: 22px;
+          }
+
+          h2 {
+            font-size: 36px;
+          }
+        }
+      }
+
+      &#map {
+        .title-contact {
+          p {
+            font-size: 22px;
+          }
+
+          h2 {
+            font-size: 36px;
+          }
+        }
+      }
+
+      &#footer {
+        .footer-logo {
+          text-align: center;
+
+          .logo-part {
+            justify-content: center !important;
+
+            h4 {
+              font-size: 28px !important;
+            }
+          }
+
+          .context {
+            font-size: 14px !important;
+            margin-bottom: 15px;
+          }
+        }
+
+
+        .footer-menu {
+          margin-bottom: 15px;
+
+          .title-menu {
+            text-align: center;
+
+            h6 {
+              font-size: 18px !important;
+            }
+          }
+
+          .nav-item {
+            text-align: center;
+
+            .nav-link {
+              font-size: 14px !important;
+            }
+          }
+        }
+
+        .footer-contact {
+          text-align: center;
+
+          .title-footer-contact {
+            h6 {
+              font-size: 18px !important;
+            }
+          }
+
+          .text-footer {
+            font-size: 14px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 375px) {
+  body {
+    section {
+      &#tour-programmes {
+        .title-tour {
           text-align: center;
         }
-        .card-style{
-          .card{
+
+        .card-style {
+          .card {
             height: 450px;
+          }
+        }
+      }
+
+      &#destination{
+        .new-carousel{
+          .figure{
+            height: 200px;
+            .layer{
+              height: 200px;
+            }
           }
         }
       }
