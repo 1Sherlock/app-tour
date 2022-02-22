@@ -1,10 +1,13 @@
 import React, {useState, Component} from 'react';
-import {Button, Card, CardBody, UncontrolledCollapse} from "reactstrap";
+import {Button, Card, CardBody, Modal, ModalBody, ModalFooter, UncontrolledCollapse} from "reactstrap";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import {login, updateState} from "../../redux/actions/authAction";
+import {connect} from "react-redux";
+import {AvForm, AvField} from "availity-reactstrap-validation";
 
-const HomePage = () => {
+const HomePage = (props) => {
 
         const settings = {
             dots: false,
@@ -36,7 +39,7 @@ const HomePage = () => {
                             <li className="nav-item"><a href="#" className="nav-link font-family-medium">Need help?</a>
                             </li>
                             <li className="nav-item"><a href="#" className="nav-link font-family-medium">Blog</a></li>
-                            <li className="nav-item d-flex align-items-center justify-content-center cursor m-0"><span className="icon icon-profile"/></li>
+                            <li className="nav-item d-flex align-items-center justify-content-center cursor m-0" onClick={() => props.updateState({isModalVisible: true})}><span className="icon icon-profile"/></li>
                         </ul>
                     </div>
                 </div>
@@ -707,9 +710,26 @@ const HomePage = () => {
                 </div>
             </div>
 
+            <Modal isOpen={props.isModalVisible} toggle={() => props.updateState({isModalVisible: false})}>
+                <ModalBody className="">
+                    <h3 className="text-center">Login</h3>
+
+                    <AvForm>
+
+                    </AvForm>
+                </ModalBody>
+                <ModalFooter className="border-top-0">
+
+                </ModalFooter>
+            </Modal>
 
         </div>
     );
 };
-
-export default HomePage;
+const mapStateToProps = (state) => {
+    return {
+        isLoading: state.auth.isLoading,
+        isModalVisible: state.auth.isModalVisible
+    }
+}
+export default connect(mapStateToProps, {login, updateState})(HomePage);
