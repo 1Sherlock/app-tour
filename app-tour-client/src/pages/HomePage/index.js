@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import {login, updateState} from "../../redux/actions/authAction";
 import {connect} from "react-redux";
 import {AvForm, AvField} from "availity-reactstrap-validation";
+import InputMask from "react-input-mask";
 
 const HomePage = (props) => {
 
@@ -19,6 +20,9 @@ const HomePage = (props) => {
         };
 
     const [isOpen, setIsOpen] = useState(false);
+
+    const [hasRegistered, setHasRegistered] = useState(true);
+    const [checked, setChecked] = useState(false);
 
     return (
         <div>
@@ -608,7 +612,7 @@ const HomePage = (props) => {
                     <div className="map-zone">
                         <iframe className="map"
                                 src="https://www.google.com/maps/embed?pb=!1m21!1m12!1m3!1d2520.324655923657!2d69.28582771909839!3d41.30477332895754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m6!3e6!4m3!3m2!1d41.3045192!2d69.285954!4m0!5e0!3m2!1sru!2s!4v1643181255335!5m2!1sru!2s"
-                                allowFullScreen="" loading="lazy"></iframe>
+                                allowFullScreen="" loading="lazy"/>
 
                         <div className="contacts">
                             <div className="card">
@@ -710,17 +714,53 @@ const HomePage = (props) => {
                 </div>
             </div>
 
-            <Modal isOpen={props.isModalVisible} toggle={() => props.updateState({isModalVisible: false})}>
+            <Modal isOpen={props.isModalVisible} toggle={() => props.updateState({isModalVisible: false})} size="sm" centered className="styled-modal">
                 <ModalBody className="">
-                    <h3 className="text-center">Login</h3>
+                    <h3 className="text-center mb-4">{checked ? hasRegistered ? "Login" : "Register" : "Login or Register"}</h3>
 
                     <AvForm>
 
+                        <InputMask mask="+\9\98 (99) 999-99-99" placeholder="+998" className="form-control mb-4 styled-input"/>
+
+                        <AvField
+                            name="password"
+                            required
+                            type="password"
+                            placeholder="Password"
+                            className=" styled-input"
+                        />
+
+                        {!hasRegistered &&
+                            <>
+                                <AvField
+                                    name="confirmPassword"
+                                    required
+                                    type="password"
+                                    placeholder="Confirm Password"
+                                    className="styled-input"
+                                />
+
+                                <AvField
+                                    name="firstname"
+                                    required
+                                    type="text"
+                                    placeholder="Firstname"
+                                    className="styled-input"
+                                />
+
+                                <AvField
+                                    name="lastname"
+                                    required
+                                    type="text"
+                                    placeholder="Lastname"
+                                    className="styled-input"
+                                />
+                            </>
+                        }
+
+                        <button type="button" className="btn btn-block mb-2 mt-4 styled-button shadow-none">Login</button>
                     </AvForm>
                 </ModalBody>
-                <ModalFooter className="border-top-0">
-
-                </ModalFooter>
             </Modal>
 
         </div>
