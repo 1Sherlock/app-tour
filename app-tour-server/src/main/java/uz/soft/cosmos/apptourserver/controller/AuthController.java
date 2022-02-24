@@ -22,6 +22,8 @@ import uz.soft.cosmos.apptourserver.repository.UserRepository;
 import uz.soft.cosmos.apptourserver.security.AuthService;
 import uz.soft.cosmos.apptourserver.security.JwtTokenProvider;
 
+import java.util.Optional;
+
 
 @RestController
 @RequestMapping("/api/auth")
@@ -60,6 +62,22 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
         }
     }
+
+    @PostMapping("/check")
+    public HttpEntity<?> checkUser(@RequestBody ReqSignIn reqSignIn){
+        try {
+            Optional<User> user = userRepository.findByPhoneNumber(reqSignIn.getPhoneNumber());
+
+            if (user.isPresent()){
+                return ResponseEntity.ok(new ApiResponse(true, "registered"));
+            } else
+                return ResponseEntity.ok(new ApiResponse(false, "nRegistered"));
+        } catch (Exception e){
+            return ResponseEntity.ok(new ApiResponse(false, e.getLocalizedMessage()));
+        }
+    }
+
+
 
     private HttpEntity<?> getApiToken(String phoneNumber, String password) {
         Authentication authentication = authenticationManager.authenticate(

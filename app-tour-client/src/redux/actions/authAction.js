@@ -10,7 +10,7 @@ export function updateState(state) {
     }
 }
 
-export const login = (values) => (dispatch) => {
+export const login = (e, values) => (dispatch) => {
     dispatch(updateState({isLoading: true}))
     axios.post(API_PATH + "auth/login", values)
         .then(async res => {
@@ -37,4 +37,26 @@ export const login = (values) => (dispatch) => {
         .finally(() => {
             dispatch(updateState({isLoading: false}))
         })
+}
+
+export const checkUser = (phoneNumber) => (dispatch) => {
+    dispatch(updateState({isLoading: true}))
+
+    axios.post(API_PATH + "auth/check", {phoneNumber})
+        .then(res => {
+            if (res.data.success){
+                dispatch(updateState({hasRegistered: true, checked: true}))
+            } else {
+                if(res.data.message === "nRegistered"){
+                    dispatch(updateState({hasRegistered: false, checked: true}))
+                } else toast.error("Connection Error");
+            }
+        })
+        .finally(() => {
+            dispatch(updateState({isLoading: false}))
+        })
+}
+
+export const register = (e, v) => (dispatch) => {
+
 }

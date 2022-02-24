@@ -3,7 +3,10 @@ import {UPDATE_STATE_AUTH} from "../types";
 const initialState = {
     isLoading: false,
     me: {},
-    modalVisible: false
+    modalVisible: false,
+    phoneNumber: "",
+    hasRegistered: true,
+    checked: false,
 }
 
 export const authReducer = (state = initialState, action) => {

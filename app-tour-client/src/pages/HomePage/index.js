@@ -3,7 +3,7 @@ import {Button, Card, CardBody, Modal, ModalBody, ModalFooter, UncontrolledColla
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {login, updateState} from "../../redux/actions/authAction";
+import {checkUser, login, updateState, register} from "../../redux/actions/authAction";
 import {connect} from "react-redux";
 import {AvForm, AvField} from "availity-reactstrap-validation";
 import InputMask from "react-input-mask";
@@ -21,8 +21,16 @@ const HomePage = (props) => {
 
     const [isOpen, setIsOpen] = useState(false);
 
-    const [hasRegistered, setHasRegistered] = useState(true);
-    const [checked, setChecked] = useState(false);
+    const changePhone = (e) => {
+        let temp = e.target.value.replaceAll(" ", "").replaceAll("-", "").replaceAll("(", "").replaceAll(")", "");
+        props.updateState({phoneNumber: temp})
+
+        if (temp.indexOf("_") < 0){
+            props.checkUser(temp);
+        } else {
+            props.updateState({checked: false, hasRegistered: true})
+        }
+    }
 
     return (
         <div>
@@ -716,11 +724,11 @@ const HomePage = (props) => {
 
             <Modal isOpen={props.isModalVisible} toggle={() => props.updateState({isModalVisible: false})} size="sm" centered className="styled-modal">
                 <ModalBody className="">
-                    <h3 className="text-center mb-4">{checked ? hasRegistered ? "Login" : "Register" : "Login or Register"}</h3>
+                    <h3 className="text-center mb-4">{props.checked ? props.hasRegistered ? "Login" : "Register" : "Login or Register"}</h3>
 
-                    <AvForm>
+                    <AvForm onValidSubmit={props.hasRegistered ? (e, v) => {props.login(e, v)} : (e, v) => {props.register(e, v)}}>
 
-                        <InputMask mask="+\9\98 (99) 999-99-99" placeholder="+998" className="form-control mb-4 styled-input"/>
+                        <InputMask mask="+\9\98 (99) 999-99-99" placeholder="+998" className="form-control mb-4 styled-input" onChange={changePhone}/>
 
                         <AvField
                             name="password"
@@ -730,13 +738,14 @@ const HomePage = (props) => {
                             className=" styled-input"
                         />
 
-                        {!hasRegistered &&
+                        {!props.hasRegistered &&
                             <>
                                 <AvField
                                     name="confirmPassword"
                                     required
                                     type="password"
                                     placeholder="Confirm Password"
+                                    validate={{match:{value:'password'}}}
                                     className="styled-input"
                                 />
 
@@ -755,10 +764,16 @@ const HomePage = (props) => {
                                     placeholder="Lastname"
                                     className="styled-input"
                                 />
+                                <AvField
+                                    name="email"
+                                    type="email"
+                                    placeholder="Email"
+                                    className="styled-input"
+                                />
                             </>
                         }
 
-                        <button type="button" className="btn btn-block mb-2 mt-4 styled-button shadow-none">Login</button>
+                        <button type="button" disabled={props.isLoading} className="btn btn-block mb-2 mt-4 styled-button shadow-none">{props.isLoading && <span className="spinner-border spinner-border-sm"/>} Login</button>
                     </AvForm>
                 </ModalBody>
             </Modal>
@@ -769,7 +784,10 @@ const HomePage = (props) => {
 const mapStateToProps = (state) => {
     return {
         isLoading: state.auth.isLoading,
-        isModalVisible: state.auth.isModalVisible
+        phoneNumber: state.auth.phoneNumber,
+        isModalVisible: state.auth.isModalVisible,
+        hasRegistered: state.auth.hasRegistered,
+        checked: state.auth.checked,
     }
 }
-export default connect(mapStateToProps, {login, updateState})(HomePage);
+export default connect(mapStateToProps, {login, updateState, checkUser, register})(HomePage);
