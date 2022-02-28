@@ -34,7 +34,9 @@ public class NewsController {
                 news = new News();
             }
 
-            news.setTitle(reqNews.getTitle());
+            news.setTitleUz(reqNews.getTitleUz());
+            news.setTitleRu(reqNews.getTitleRu());
+            news.setTitleEn(reqNews.getTitleEn());
 
             news.setShortDescEn(reqNews.getShortDescEn());
             news.setShortDescRu(reqNews.getShortDescRu());

@@ -12,7 +12,9 @@ import java.util.UUID;
 public class ReqNews {
     private UUID id;
 
-    private String title;
+    private String titleUz;
+    private String titleRu;
+    private String titleEn;
 
     private String shortDescUz;
     private String shortDescRu;

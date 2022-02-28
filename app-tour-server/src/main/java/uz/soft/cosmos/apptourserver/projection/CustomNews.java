@@ -1,4 +1,4 @@
-package uz.soft.cosmos.apptourserver.payload;
+package uz.soft.cosmos.apptourserver.projection;
 
 import java.sql.Timestamp;
 import java.util.UUID;
@@ -20,7 +20,11 @@ public interface CustomNews {
 
     String getShortDescUz();
 
-    String getTitle();
+    String getTitleUz();
+
+    String getTitleRu();
+
+    String getTitleEn();
 
     String getUrl();
 
